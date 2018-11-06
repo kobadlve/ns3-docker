@@ -7,11 +7,12 @@ RUN apt-get install -y git gcc g++ python python-dev mercurial python-setuptools
   autoconf cvs bzr unrar gdb valgrind uncrustify doxygen graphviz imagemagick texlive texlive-extra-utils texlive-latex-extra \
   texlive-font-utils texlive-lang-portuguese dvipng python-sphinx dia gsl-bin libgsl2 libgsl-dev flex bison libfl-dev \
   tcpdump sqlite sqlite3 libsqlite3-dev libxml2 libxml2-dev cmake libc6-dev libc6-dev-i386 libclang-dev llvm-dev automake \
-  libgtk2.0-0 libgtk2.0-dev vtun lxc libboost-signals-dev libboost-filesystem-dev
+  libgtk2.0-0 libgtk2.0-dev vtun lxc libboost-signals-dev libboost-filesystem-dev python-pip castxml
 RUN mkdir /opt/ns3
 WORKDIR /opt/ns3
 RUN git clone -b ns-3.29 https://github.com/nsnam/ns-3-dev-git.git ns-3.29
 WORKDIR /opt/ns3/ns-3.29
+RUN pip install PyBindGen cxxfilt
 RUN ./waf configure && ./waf
 WORKDIR /opt/ns3
 RUN hg clone http://code.nsnam.org/netanim
