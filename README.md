@@ -22,7 +22,6 @@ wifi                      wimax
 
 Modules not built (see ns-3 tutorial for explanation):
 brite                     click                     openflow
-
 ```
 
 ## Build Image
@@ -37,14 +36,13 @@ Build image - `$ docker build -t ns3 .`
 
 ## Run
 
-* Run C++ simulation - `$ ./waf --run script`
-* Run Python simulation - `$ ./waf --pyrun script`
+* Run C++ simulation - `$ ./waf --run ex.cc`
+* Run Python simulation - `$ ./waf --pyrun ex.py`
 
 ## Copy and build your scripts
 
 ```
-$ docker cp scirpt <Container ID>:/opt/ns3/ns-3.29/scratch/script
-$ docker run -it -e DISPLAY=docker.for.mac.localhost:0 -v /tmp/.X11-unix:/tmp/.X11-unix ns3
-$ ./waf
+(host)$ docker cp scirpt <Container ID>:/opt/ns3/ns-3.29/scratch/script
+(container)$ ./waf
 ```
 
