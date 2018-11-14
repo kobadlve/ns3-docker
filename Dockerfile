@@ -12,7 +12,7 @@ RUN mkdir /opt/ns3
 WORKDIR /opt/ns3
 RUN git clone -b ns-3.29 https://github.com/nsnam/ns-3-dev-git.git ns-3.29
 WORKDIR /opt/ns3/ns-3.29
-RUN pip install PyBindGen cxxfilt
+RUN pip install PyBindGen cxxfilt pygccxml
 RUN ./waf configure && ./waf
 WORKDIR /opt/ns3
 RUN hg clone http://code.nsnam.org/netanim
